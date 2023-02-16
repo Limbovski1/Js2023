@@ -1,20 +1,20 @@
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом всередині
 
 for (let i = 0; i < 10; i++) {
-    document.write('<div>Lorem Ipsum</div>');
+    document.write(`<div>Hello</div>`);
 }
 
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
 
 for (let i = 0; i < 10; i++) {
-    document.write('<div>Lorem Ipsum -- $[i]</div>');
+    document.write(`<div>Hello ${i}</div>`);
 }
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
 
 let a = 0;
 while(a < 10) {
-    document.write('<h1>asdqwe</h1>');
+    document.write(`<h1>Hello</h1>`);
     a++;
 }
 
@@ -22,7 +22,7 @@ while(a < 10) {
 
 let b = 0;
 while(b < 10) {
-    document.write('<h1>asdqwe -- ${b}</h1>');
+    document.write(`<h1>Hello ${b}</h1>`);
     b++;
 }
 
@@ -48,11 +48,9 @@ while(b < 10) {
 let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
 document.write('<ul>')
 for (i = 0; i< listOfItems.length; i++) {
-    document.write(listOfItems[i] + '--');
+    document.write(`<ol>${listOfItems[i]}</ol>`);
 }
 document.write('</ul>')
-
-
 
 
 // -----------------------------------------------
@@ -117,23 +115,15 @@ document.write('</ul>')
  ];
 
 
-// ШАБЛОН
-// <div class="product-card">
-//     <h3 class="product-title">TITLE. Price - PRICE</h3>
-// <img src="IMAGE" alt="" class="product-image">
-// </div>
-// Замість TITLE PRICE IMAGE - підставити відповідні поля з об'єкту
 
-
-for (const x of products); {
-    document.write('<div class='product-card'>
-        <h3> Title -- ${x.title}   </h3>
-        <h3> Price -- ${x.price}   </h3>
-        <img src="${x.image}" alt="${x.title}"/>
-        </div>')
-
-}
-
+    for (const product of products) {
+            document.write(`<div class="Product">
+            <h2>Product -- ${product.title}</h2>
+            <h3>Price -- ${product.price} $$$</h3>
+            <img src="${product.image}" alt="${product.title}">
+            </div>
+            `)
+    }
 // --------------------
 //     є масив
 // let users = [
@@ -153,3 +143,35 @@ for (const x of products); {
 //     - користувачів зі статусом true
 // - користувачів зі статусом false
 // - користувачів які старші за 30 років
+
+ let users = [
+     {name: 'vasya', age: 31, status: false},
+     {name: 'petya', age: 30, status: true},
+     {name: 'kolya', age: 29, status: true},
+     {name: 'olya', age: 28, status: false},
+     {name: 'max', age: 30, status: true},
+     {name: 'anya', age: 31, status: false},
+     {name: 'oleg', age: 28, status: false},
+     {name: 'andrey', age: 29, status: true},
+     {name: 'masha', age: 30, status: true},
+     {name: 'olya', age: 31, status: false},
+     {name: 'max', age: 31, status: true}
+ ];
+
+    for (const user of users) {
+        if (user.status){
+            document.write(`<div>${user.name} ${user.age} ${user.status}</div>`)
+        }
+    }
+
+    for (const user of users) {
+        if (!user.status){
+            document.write(`<div>${user.name} ${user.age} ${user.status}</div>`)
+        }
+    }
+
+    for (const user of users) {
+       if (user.age >= 30){
+            document.write(`<div>${user.name} ${user.age} ${user.status}</div>`)
+        }
+    }
